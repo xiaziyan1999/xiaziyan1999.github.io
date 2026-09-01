@@ -136,21 +136,6 @@ p { margin: 0 0 16px; }
 .entry li { margin-bottom: 6px; }
 .entry li::marker { color: var(--text-faint); }
 
-/* ---- placeholder for unverified content ---- */
-.tk {
-  display: inline-block;
-  padding: 1px 8px;
-  border-radius: 4px;
-  background: #ffe9a8;
-  color: #5c4400;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .tk { background: #4a3c10; color: #ffd970; }
-}
-
 /* ---- footer ---- */
 footer {
   margin-top: 64px;
