@@ -5,28 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ziyan (Cecilia) Xia</title>
   <meta name="description" content="Ziyan (Cecilia) Xia — product data scientist working on analytics, experimentation and modeling. San Francisco Bay Area.">
+  <meta name="theme-color" content="#3a3444">
   <link rel="icon" type="image/png" href="jpg/me.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="stylesheets/styles.css">
 </head>
 <body>
 <div class="wrap">
 
   <header class="hero">
-    <img src="jpg/portrait.jpg" alt="Ziyan (Cecilia) Xia">
-    <div>
-      <h1>Ziyan (Cecilia) Xia</h1>
-      <p class="headline">Product Data Scientist</p>
-      <p class="meta">San Francisco Bay Area &middot; 夏子言</p>
+    <svg class="crest rise rise-1" viewBox="0 0 82 30" aria-hidden="true">
+      <line pathLength="1" x1="41" y1="30" x2="41" y2="1"  stroke-linecap="round"/>
+      <line pathLength="1" x1="41" y1="30" x2="27" y2="5"  stroke-linecap="round"/>
+      <line pathLength="1" x1="41" y1="30" x2="55" y2="5"  stroke-linecap="round"/>
+      <line pathLength="1" x1="41" y1="30" x2="14" y2="13" stroke-linecap="round"/>
+      <line pathLength="1" x1="41" y1="30" x2="68" y2="13" stroke-linecap="round"/>
+      <path class="arc" pathLength="1" d="M6 27 Q41 11 76 27" stroke-linecap="round"/>
+    </svg>
+
+    <div class="portrait rise rise-2">
+      <img src="jpg/portrait.jpg" alt="Ziyan (Cecilia) Xia">
     </div>
+
+    <h1 class="rise rise-3">Ziyan Xia</h1>
+    <p class="headline rise rise-4">Product Data Scientist</p>
+    <p class="meta rise rise-4">Cecilia &middot; San Francisco Bay Area &middot; 夏子言</p>
+
+    <ul class="links rise rise-5">
+      <li><a href="mailto:xiaziyan1999@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/xiaziyan">LinkedIn</a></li>
+      <li><a href="https://github.com/xiaziyan1999">GitHub</a></li>
+    </ul>
   </header>
 
-  <ul class="links">
-    <li><a href="mailto:xiaziyan1999@gmail.com">Email</a></li>
-    <li><a href="https://www.linkedin.com/in/xiaziyan">LinkedIn</a></li>
-    <li><a href="https://github.com/xiaziyan1999">GitHub</a></li>
-  </ul>
-
-  <section>
+  <section class="reveal">
     <h2>About</h2>
     <p>I am a product data scientist who builds end-to-end analytics and modeling systems for
     B2B SaaS products. Most recently I designed production pipelines and dashboards that cut
@@ -36,7 +50,24 @@
     engineering, and go-to-market to turn large-scale data into decisions people actually act on.</p>
   </section>
 
-  <section>
+  <section class="reveal">
+    <div class="plates">
+      <figure class="plate">
+        <div class="deco-frame">
+          <video src="media/scene-a.mp4" poster="media/scene-a.jpg"
+                 autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+      </figure>
+      <figure class="plate">
+        <div class="deco-frame">
+          <video src="media/scene-b.mp4" poster="media/scene-b.jpg"
+                 autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="reveal">
     <h2>Experience</h2>
 
     <div class="entry">
@@ -104,7 +135,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <h2>Education</h2>
 
     <div class="entry">
@@ -126,7 +157,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <h2>Skills</h2>
     <div class="entry">
       <ul>
@@ -142,7 +173,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <h2>Projects</h2>
 
     <div class="entry">
@@ -181,16 +212,16 @@
     </div>
   </section>
 
-  <section>
-    <h2>Licenses &amp; Certifications</h2>
+  <section class="reveal">
+    <h2>Certifications</h2>
     <div class="entry">
       <h3>Social and Behavioral Research &mdash; Basic/Refresher</h3>
       <p class="org">CITI Program</p>
-      <p class="dates">Issued Feb 2022 &middot; Expired Feb 2025 &middot; Credential ID 47150531</p>
+      <p class="dates">Issued Feb 2022 &middot; Expired Feb 2025 &middot; ID 47150531</p>
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <h2>Volunteering</h2>
     <div class="entry">
       <h3>English Teacher Volunteer</h3>
@@ -203,10 +234,34 @@
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2026 Ziyan Xia &middot; <a href="https://github.com/xiaziyan1999/xiaziyan1999.github.io">Source</a></p>
+  <footer class="reveal">
+    <p>&copy; 2026 Ziyan Xia &middot;
+    <a href="https://github.com/xiaziyan1999/xiaziyan1999.github.io">Source</a></p>
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var targets = document.querySelectorAll('.reveal');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.06 });
+
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>
