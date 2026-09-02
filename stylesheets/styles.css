@@ -205,11 +205,11 @@ p { margin: 0 0 18px; }
 
 .logo {
   flex: none;
-  width: 46px;
-  height: 46px;
-  border-radius: 11px;
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
   object-fit: contain;
-  padding: 6px;
+  padding: 3px;
   background: #fff;
   border: 1px solid var(--rule);
 }
@@ -348,7 +348,7 @@ footer {
   section { margin-top: 56px; }
   .entry { padding: 20px 20px; }
   .entry-head { gap: 12px; }
-  .logo { width: 40px; height: 40px; border-radius: 9px; }
+  .logo { width: 46px; height: 46px; border-radius: 10px; }
 }
 
 @media (max-width: 420px) {
