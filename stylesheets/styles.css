@@ -403,3 +403,194 @@ footer {
   .hero h1 { font-size: 26px; }
   .links a { padding: 7px 15px; font-size: 12px; }
 }
+
+/* ============================================================
+   Top navigation
+   ============================================================ */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 40px;
+  background: rgba(48, 43, 58, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--gold-faint);
+}
+
+.topbar .mark {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--text);
+  white-space: nowrap;
+}
+.topbar .mark:hover { color: var(--gold-hi); }
+
+.topbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.topbar nav a {
+  font-family: var(--display);
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  position: relative;
+  padding-bottom: 3px;
+}
+.topbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s var(--ease);
+}
+.topbar nav a:hover { color: var(--gold-hi); }
+.topbar nav a:hover::after,
+.topbar nav a[aria-current="page"]::after { transform: scaleX(1); }
+.topbar nav a[aria-current="page"] { color: var(--gold); }
+
+/* ============================================================
+   Hero positioning statement
+   ============================================================ */
+
+.statement {
+  max-width: 30ch;
+  margin: 26px auto 0;
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1.34;
+  letter-spacing: 0.005em;
+  color: var(--text);
+}
+.statement em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* ============================================================
+   Tag chips
+   ============================================================ */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.tags li {
+  padding: 3px 11px;
+  border: 1px solid var(--gold-faint);
+  font-family: var(--display);
+  font-size: 11.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+/* the entry rules add a diamond marker; tags are their own thing */
+.tags li::before { content: none; }
+.tags li { padding-left: 11px; margin-bottom: 0; position: static; }
+
+/* ============================================================
+   Single film plate
+   ============================================================ */
+
+.plate-single {
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   Instagram cards
+   ============================================================ */
+
+.feeds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.feed {
+  display: block;
+  padding: 20px;
+  border: 1px solid var(--gold-line);
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  transition: border-color .4s var(--ease), background-color .4s var(--ease);
+}
+.feed:hover { border-color: var(--gold); background: rgba(212,172,106,.05); }
+
+.feed .handle {
+  display: block;
+  font-family: var(--display);
+  font-size: 15px;
+  letter-spacing: 0.11em;
+  color: var(--gold-hi);
+}
+.feed .what {
+  display: block;
+  margin-top: 5px;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+.feed .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 15px;
+}
+.feed .grid img,
+.feed .grid .slot {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  background: rgba(212,172,106,.07);
+  border: 1px solid var(--gold-faint);
+}
+
+/* ============================================================
+   Gaps still waiting on content
+   ============================================================ */
+
+.gap {
+  display: block;
+  padding: 15px 18px;
+  border: 1px dashed rgba(212,172,106,.45);
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(212,172,106,.05);
+}
+
+@media (max-width: 620px) {
+  .topbar { padding: 12px 20px; gap: 12px; }
+  .topbar nav { gap: 14px; }
+  .topbar nav a { font-size: 11.5px; letter-spacing: 0.11em; }
+  .statement { font-size: 23px; max-width: none; }
+  .feeds { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 430px) {
+  .topbar { flex-direction: column; align-items: flex-start; gap: 9px; }
+}

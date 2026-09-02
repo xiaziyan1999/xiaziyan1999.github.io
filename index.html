@@ -13,6 +13,16 @@
   <link rel="stylesheet" href="stylesheets/styles.css">
 </head>
 <body>
+<div class="topbar">
+  <a class="mark" href="index.html">Ziyan Xia</a>
+  <nav>
+    <a href="index.html" aria-current="page">Work</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="interests.html">Interests</a>
+    <a href="mailto:xiaziyan1999@gmail.com">Contact</a>
+  </nav>
+</div>
+
 <div class="wrap">
 
   <header class="hero">
@@ -30,8 +40,10 @@
     </div>
 
     <h1 class="rise rise-3">Ziyan Xia</h1>
-    <p class="headline rise rise-4">Product Data Scientist</p>
-    <p class="meta rise rise-4">Cecilia &middot; San Francisco Bay Area &middot; 夏子言</p>
+    <p class="headline rise rise-4">Data &middot; Design &middot; Go-To-Market</p>
+    <p class="statement rise rise-4">I work where <em>data</em>, <em>design</em>,
+    and <em>go-to-market</em> meet.</p>
+    <p class="meta rise rise-5">Cecilia &middot; San Francisco Bay Area &middot; 夏子言</p>
 
     <ul class="links rise rise-5">
       <li><a href="mailto:xiaziyan1999@gmail.com">Email</a></li>
@@ -51,23 +63,15 @@
   </section>
 
   <section class="reveal">
-    <div class="plates">
-      <figure class="plate">
-        <div class="deco-frame">
-          <video src="media/scene-a.mp4" poster="media/scene-a.jpg"
-                 autoplay muted loop playsinline preload="metadata"></video>
-        </div>
-      </figure>
-      <figure class="plate">
-        <div class="deco-frame">
-          <video src="media/scene-b.mp4" poster="media/scene-b.jpg"
-                 autoplay muted loop playsinline preload="metadata"></video>
-        </div>
-      </figure>
-    </div>
+    <figure class="plate plate-single">
+      <div class="deco-frame">
+        <video src="media/scene.mp4" poster="media/scene.jpg"
+               autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+    </figure>
   </section>
 
-  <section class="reveal">
+  <section class="reveal" id="experience">
     <h2>Experience</h2>
 
     <div class="entry">
@@ -108,6 +112,10 @@
         recommendations guiding product iteration, ML model calibration, LLM agent evaluation,
         and C-suite decisions.</li>
       </ul>
+      <ul class="tags">
+        <li>IoT</li><li>B2B SaaS</li><li>Experimentation</li>
+        <li>Forecasting</li><li>Looker</li><li>GTM Partnership</li>
+      </ul>
     </div>
 
     <div class="entry">
@@ -132,6 +140,9 @@
         patterns, seasonal effects, and activity cycles, supporting hypothesis generation and
         model design.</li>
       </ul>
+      <ul class="tags">
+        <li>Time Series</li><li>Wearables</li><li>Clinical Data</li><li>ARIMA</li>
+      </ul>
     </div>
   </section>
 
@@ -154,6 +165,16 @@
       <h3>Visiting Student (BISP), Statistics</h3>
       <p class="org">University of California, Berkeley</p>
       <p class="dates">Aug 2019 &ndash; May 2020 &middot; Berkeley, CA &middot; GPA 3.5 / 4.0</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Honors &amp; Activities</h2>
+    <div class="entry">
+      <h3>Central China Normal University</h3>
+      <p class="dates">2017 &ndash; 2021 &middot; Wuhan, China</p>
+      <p class="gap">Waiting on content — the varsity soccer entry and the award
+      names/years from your LinkedIn. Paste them and I will set them here.</p>
     </div>
   </section>
 
@@ -234,8 +255,27 @@
     </div>
   </section>
 
+  <section class="reveal">
+    <h2>Elsewhere</h2>
+    <div class="feeds">
+      <a class="feed" href="#">
+        <span class="handle">@handle</span>
+        <span class="what">First account &mdash; what it is</span>
+        <span class="grid"><span class="slot"></span><span class="slot"></span><span class="slot"></span></span>
+      </a>
+      <a class="feed" href="#">
+        <span class="handle">@handle</span>
+        <span class="what">Second account &mdash; what it is</span>
+        <span class="grid"><span class="slot"></span><span class="slot"></span><span class="slot"></span></span>
+      </a>
+    </div>
+    <p class="gap" style="margin-top:20px">Waiting on content — the two Instagram
+    handles, and which posts you want shown as previews.</p>
+  </section>
+
   <footer class="reveal">
     <p>&copy; 2026 Ziyan Xia &middot;
+    <a href="interests.html">Interests</a> &middot;
     <a href="https://github.com/xiaziyan1999/xiaziyan1999.github.io">Source</a></p>
   </footer>
 
@@ -261,6 +301,28 @@
   }, { rootMargin: '0px 0px -12% 0px', threshold: 0.06 });
 
   targets.forEach(function (el) { io.observe(el); });
+
+  // A fast scroll (or an anchor jump) can outrun the observer and strand a
+  // section at opacity 0. Sweep for anything already past the fold.
+  function sweep() {
+    targets.forEach(function (el) {
+      if (el.classList.contains('in')) return;
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('in');
+        io.unobserve(el);
+      }
+    });
+  }
+
+  var queued = false;
+  addEventListener('scroll', function () {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () { queued = false; sweep(); });
+  }, { passive: true });
+
+  addEventListener('hashchange', sweep);
+  addEventListener('load', sweep);
 })();
 </script>
 </body>

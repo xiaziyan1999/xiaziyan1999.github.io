@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interests — Ziyan (Cecilia) Xia</title>
+  <meta name="description" content="Design, astrology and Chinese metaphysics — the things Ziyan Xia works on outside of analytics.">
+  <meta name="theme-color" content="#3a3444">
+  <link rel="icon" type="image/png" href="jpg/me.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="mark" href="index.html">Ziyan Xia</a>
+  <nav>
+    <a href="index.html">Work</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="interests.html" aria-current="page">Interests</a>
+    <a href="mailto:xiaziyan1999@gmail.com">Contact</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <svg class="crest rise rise-1" viewBox="0 0 82 30" aria-hidden="true">
+      <line pathLength="1" x1="41" y1="30" x2="41" y2="1"  stroke-linecap="round"/>
+      <line pathLength="1" x1="41" y1="30" x2="27" y2="5"  stroke-linecap="round"/>
+      <line pathLength="1" x1="41" y1="30" x2="55" y2="5"  stroke-linecap="round"/>
+      <line pathLength="1" x1="41" y1="30" x2="14" y2="13" stroke-linecap="round"/>
+      <line pathLength="1" x1="41" y1="30" x2="68" y2="13" stroke-linecap="round"/>
+      <path class="arc" pathLength="1" d="M6 27 Q41 11 76 27" stroke-linecap="round"/>
+    </svg>
+
+    <h1 class="rise rise-2">Interests</h1>
+    <p class="statement rise rise-3">Two things I keep coming back to:
+    <em>making things look right</em>, and <em>the old systems for reading a life</em>.</p>
+  </header>
+
+  <section class="reveal">
+    <h2>Design</h2>
+    <p class="gap">Waiting on content — what you want to show here. Options: visual
+    work you have made, the AI-generated film stills, interface or brand work,
+    or a short piece on how design feeds the analytics side of your work.</p>
+  </section>
+
+  <section class="reveal">
+    <h2>Astrology &amp; Chinese Metaphysics</h2>
+
+    <p>Four systems I read in, each with its own logic for the same question.</p>
+
+    <div class="entry">
+      <h3>Vedic Astrology &mdash; Jyotish</h3>
+      <p class="org">Sidereal charts, divisional charts, Dasha timing</p>
+      <ul class="tags">
+        <li>Parashari</li><li>Navamsa</li><li>Vimshottari Dasha</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3>BaZi &mdash; 八字 / 四柱</h3>
+      <p class="org">Four Pillars: stems and branches, elemental balance, luck cycles</p>
+      <ul class="tags">
+        <li>Ten Gods</li><li>Five Elements</li><li>Luck Pillars</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3>Zi Wei Dou Shu &mdash; 紫微斗数</h3>
+      <p class="org">Twelve palaces, fourteen major stars, the four transformations</p>
+      <ul class="tags">
+        <li>Twelve Palaces</li><li>Four Transformations</li><li>Major Limits</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3>Qi Men Dun Jia &mdash; 奇门遁甲</h3>
+      <p class="org">Time-and-direction charts for a specific question</p>
+      <ul class="tags">
+        <li>Hourly Charts</li><li>Directional</li><li>Divination</li>
+      </ul>
+    </div>
+
+    <p class="gap">Waiting on content — how much you want to say about each, and
+    whether to keep the four as-is or lead with one.</p>
+  </section>
+
+  <footer class="reveal">
+    <p>&copy; 2026 Ziyan Xia &middot;
+    <a href="index.html">Work</a> &middot;
+    <a href="https://github.com/xiaziyan1999/xiaziyan1999.github.io">Source</a></p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var targets = document.querySelectorAll('.reveal');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.06 });
+
+  targets.forEach(function (el) { io.observe(el); });
+
+  // A fast scroll (or an anchor jump) can outrun the observer and strand a
+  // section at opacity 0. Sweep for anything already past the fold.
+  function sweep() {
+    targets.forEach(function (el) {
+      if (el.classList.contains('in')) return;
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('in');
+        io.unobserve(el);
+      }
+    });
+  }
+
+  var queued = false;
+  addEventListener('scroll', function () {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () { queued = false; sweep(); });
+  }, { passive: true });
+
+  addEventListener('hashchange', sweep);
+  addEventListener('load', sweep);
+})();
+</script>
+</body>
+</html>
