@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design &amp; AIGC — Ziyan (Cecilia) Xia</title>
+  <meta name="description" content="Generative image and motion work by Ziyan (Cecilia) Xia.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://ziyanxia.com/design.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ziyanxia.com/design.html">
+  <meta property="og:title" content="Design &amp; AIGC — Ziyan (Cecilia) Xia">
+  <meta property="og:description" content="Generative image and motion work by Ziyan (Cecilia) Xia.">
+  <meta property="og:image" content="https://ziyanxia.com/media/aigc-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="jpg/me.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="mark" href="index.html">Ziyan Xia</a>
+  <nav>
+    <a href="index.html">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="design.html" aria-current="page">Design</a>
+    <a href="interests.html">Interests</a>
+    <a href="mailto:xiaziyan1999@gmail.com">Contact</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1 class="rise rise-1">Design &amp; AIGC</h1>
+    <p class="statement-sub rise rise-2">Generative image and motion work &mdash;
+    stills and short loops made with AI tools, then art-directed and cut by hand.</p>
+    <ul class="links rise rise-3">
+      <li><a href="https://www.instagram.com/a_decent_mochisan/">@a_decent_mochisan</a></li>
+    </ul>
+  </header>
+
+  <section class="reveal">
+    <h2>Stills</h2>
+    <figure class="frame frame-wide">
+      <img src="media/aigc-portrait.jpg" alt="Illustrated portrait in a dark restaurant interior">
+    </figure>
+  </section>
+
+  <section class="reveal">
+    <h2>Motion</h2>
+    <div class="frames">
+      <figure class="frame">
+        <video src="media/aigc-restaurant.mp4" poster="media/aigc-restaurant.jpg"
+               autoplay muted loop playsinline preload="metadata"></video>
+      </figure>
+      <figure class="frame">
+        <video src="media/aigc-beach.mp4" poster="media/aigc-beach.jpg"
+               muted loop playsinline controls preload="none"></video>
+      </figure>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <p>&copy; 2026 Ziyan Xia &middot;
+    <a href="index.html">Work</a> &middot;
+    <a href="interests.html">Interests</a> &middot;
+    <a href="https://github.com/xiaziyan1999/xiaziyan1999.github.io">Source</a></p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var targets = document.querySelectorAll('.reveal');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.06 });
+
+  targets.forEach(function (el) { io.observe(el); });
+
+  function sweep() {
+    targets.forEach(function (el) {
+      if (el.classList.contains('in')) return;
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('in'); io.unobserve(el);
+      }
+    });
+  }
+  var queued = false;
+  addEventListener('scroll', function () {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () { queued = false; sweep(); });
+  }, { passive: true });
+  addEventListener('hashchange', sweep);
+  addEventListener('load', sweep);
+})();
+</script>
+</body>
+</html>

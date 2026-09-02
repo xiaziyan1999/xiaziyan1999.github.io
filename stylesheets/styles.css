@@ -362,7 +362,7 @@ footer {
 
 .feeds {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 14px;
 }
 
@@ -410,9 +410,7 @@ footer {
   font-size: 14.5px;
   letter-spacing: -0.01em;
   color: var(--text);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .feed .what {
@@ -420,4 +418,36 @@ footer {
   margin-top: 1px;
   font-size: 13.5px;
   color: var(--faint);
+}
+
+/* ============================================================
+   Picture frames
+   ============================================================ */
+
+.frames {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.frame { margin: 0; }
+
+.frame img,
+.frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  background: var(--bg-soft);
+  box-shadow: 0 4px 22px rgba(17, 17, 20, 0.09);
+}
+
+.frame video { aspect-ratio: 1 / 1; object-fit: cover; }
+
+.frame-wide { max-width: 460px; margin: 0 auto; }
+.frame-wide img { border-radius: 16px; }
+
+@media (max-width: 620px) {
+  .frames { grid-template-columns: 1fr; gap: 14px; }
 }
