@@ -196,6 +196,27 @@ p { margin: 0 0 18px; }
 }
 .entry:last-child { margin-bottom: 0; }
 
+/* logo + identity block */
+.entry-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.logo {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 11px;
+  object-fit: contain;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid var(--rule);
+}
+.logo.invert { filter: invert(1); }
+
+.entry-id { min-width: 0; }
+
 .entry h3 {
   margin: 0 0 4px;
   font-family: var(--display);
@@ -208,13 +229,13 @@ p { margin: 0 0 18px; }
 .org { margin: 0; color: var(--muted); font-size: 15.5px; }
 
 .dates {
-  margin: 4px 0 14px;
+  margin: 4px 0 0;
   font-size: 13.5px;
   color: var(--faint);
   font-variant-numeric: tabular-nums;
 }
 
-.entry ul { margin: 0; padding: 0; list-style: none; }
+.entry ul { margin: 16px 0 0; padding: 0; list-style: none; }
 
 .entry li {
   position: relative;
@@ -326,6 +347,8 @@ footer {
   .statement-sub { max-width: none; font-size: 16px; }
   section { margin-top: 56px; }
   .entry { padding: 20px 20px; }
+  .entry-head { gap: 12px; }
+  .logo { width: 40px; height: 40px; border-radius: 9px; }
 }
 
 @media (max-width: 420px) {
