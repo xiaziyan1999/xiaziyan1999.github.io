@@ -594,3 +594,15 @@ footer {
 @media (max-width: 430px) {
   .topbar { flex-direction: column; align-items: flex-start; gap: 9px; }
 }
+
+.statement-sub {
+  max-width: 34ch;
+  margin: 16px auto 0;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+@media (max-width: 620px) {
+  .statement-sub { font-size: 15.5px; max-width: none; }
+}
