@@ -11,6 +11,7 @@
   --rule:      #e7e8ec;
   --rule-soft: #f0f1f4;
   --accent:    #111114;
+  --link:      #2f6bd0;
 
   --display: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -33,6 +34,22 @@ body {
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Links inside running copy have to look like links. Without this they
+   inherit the body colour and read as plain text. */
+.org a,
+.entry li a,
+p a:not(.feed):not(.mark) {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(47, 107, 208, 0.38);
+  transition: text-decoration-color .25s var(--ease);
+}
+.org a:hover,
+.entry li a:hover,
+p a:not(.feed):not(.mark):hover { text-decoration-color: var(--link); }
 
 .wrap {
   max-width: var(--max);
