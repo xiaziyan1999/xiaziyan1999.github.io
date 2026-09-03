@@ -18,7 +18,7 @@
           "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
 
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
-  --max: 940px;
+  --max: 860px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -486,7 +486,7 @@ footer {
   height: auto;
   max-height: 560px;
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center 58%;
 }
 
 .hero-tight { padding-top: 0; }
@@ -639,7 +639,7 @@ section > p,
 .entry li,
 .step figcaption,
 .frame figcaption {
-  max-width: 62ch;
+  max-width: 72ch;
 }
 
 .hero > p,
