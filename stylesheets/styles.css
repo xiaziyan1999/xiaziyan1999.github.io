@@ -495,3 +495,38 @@ footer {
   .hero-shot { margin-bottom: 28px; border-radius: 14px; }
   .hero-shot img { max-height: 420px; }
 }
+
+/* ============================================================
+   Pull quote
+   ============================================================ */
+
+.pull {
+  margin: 24px 0 30px;
+  padding: 22px 26px;
+  border-left: 3px solid var(--text);
+  background: var(--bg-soft);
+  border-radius: 0 12px 12px 0;
+}
+
+.pull p {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+.pull cite {
+  font-style: normal;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+.frame figcaption {
+  margin-top: 10px;
+  font-size: 13.5px;
+  color: var(--faint);
+  text-align: center;
+}
