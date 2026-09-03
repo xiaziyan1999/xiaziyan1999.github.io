@@ -18,7 +18,7 @@
           "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
 
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
-  --max: 760px;
+  --max: 940px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -54,7 +54,7 @@ p a:not(.feed):not(.mark):hover { text-decoration-color: var(--link); }
 .wrap {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 72px 32px 120px;
+  padding: 72px 40px 120px;
 }
 
 /* ---- nav ---- */
@@ -66,7 +66,7 @@ p a:not(.feed):not(.mark):hover { text-decoration-color: var(--link); }
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 16px 32px;
+  padding: 16px 40px;
   background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -627,4 +627,27 @@ footer {
 
 @media (max-width: 520px) {
   .hero h1 .cn { display: block; margin-top: 6px; font-size: 0.58em; }
+}
+
+/* ============================================================
+   Measure — the column is wide, the reading line is not.
+   `ch` is the width of "0", narrower than the average glyph, so
+   62ch lands at roughly 72 characters of real prose.
+   ============================================================ */
+
+section > p,
+.entry li,
+.step figcaption,
+.frame figcaption {
+  max-width: 62ch;
+}
+
+.hero > p,
+.hero > .statement { max-width: none; }
+
+.hero > .statement-sub { max-width: 52ch; margin-inline: auto; }
+
+@media (max-width: 1000px) {
+  .wrap { padding-left: 32px; padding-right: 32px; }
+  .topbar { padding-left: 32px; padding-right: 32px; }
 }
